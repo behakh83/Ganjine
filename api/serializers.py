@@ -24,4 +24,5 @@ class CollectionSerializer(serializers.HyperlinkedModelSerializer):
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Question
-        fields = ['collection', 'question_text', 'options', 'correct_option_index', 'date_update']
+        fields = ['collection', 'question_text', 'option1', 'option2',
+                  'option3', 'option4', 'correct_option', 'date_update']
