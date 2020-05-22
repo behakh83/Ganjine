@@ -51,3 +51,13 @@ class QuestionViewSet(viewsets.ModelViewSet):
 def test_connection(request):
     return HttpResponse(json.dumps({'status': True}))
 
+
+@api_view(['GET'])
+def collection_count(request):
+    seventh = len(Collection.objects.filter(grade=Collection.Grade.SEVENTH))
+    eighth = len(Collection.objects.filter(grade=Collection.Grade.EIGHTH))
+    ninth = len(Collection.objects.filter(grade=Collection.Grade.NINTH))
+    return HttpResponse(json.dumps({'seventh': seventh,
+                                    'eighth': eighth,
+                                    'ninth': ninth}))
+

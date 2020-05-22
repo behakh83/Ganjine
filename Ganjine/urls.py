@@ -16,6 +16,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
     path('api/v1/test/', views.test_connection),
+    path('api/v1/collections-count/', views.collection_count),
     path('api/v1/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/v1/api-token-auth/', rest_view.obtain_auth_token)
 ]
