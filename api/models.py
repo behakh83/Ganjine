@@ -47,3 +47,4 @@ class Question(models.Model):
             return "نهم" + "--" + self.collection.name + "--" + self.question_text
         else:
             return self.question_text
+
