@@ -1,0 +1,29 @@
+@font-face {
+  font-family: Vazir;
+  src: url(static/fonts/Vazir.woff);
+}
+
+*{
+    font-family: Vazir;
+}
+
+option {
+    font-family: Vazir;
+}
+
+select {
+    font-family: Vazir;
+}
+
+input[type="text"]
+{
+    font-family: Vazir;
+}
+
+.inline-group .tabular tr.has_original td {
+    padding-top: 8px;
+}
+
+.original {
+    display: none;
+}

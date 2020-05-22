@@ -11,13 +11,24 @@ class QuestionInline(admin.TabularInline):
 
 
 class CollectionAdmin(admin.ModelAdmin):
+    class Media:
+        css = {
+            'all': ('css/custom_admin_panel.css',)
+        }
     inlines = [
         QuestionInline,
     ]
 
 
+class QuestionAdmin(admin.ModelAdmin):
+    class Media:
+        css = {
+            'all': ('css/custom_admin_panel.css',)
+        }
+
+
 admin.site.register(Collection, CollectionAdmin)
-admin.site.register(Question)
+admin.site.register(Question, QuestionAdmin)
 
 admin.site.unregister(User)
 admin.site.unregister(Group)
