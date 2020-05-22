@@ -7,6 +7,7 @@ class Collection(models.Model):
         EIGHTH = 8
         NINTH = 9
 
+    id = models.AutoField(primary_key=True)
     grade = models.IntegerField(choices=Grade.choices)
     name = models.CharField(max_length=50)
 
@@ -29,6 +30,7 @@ class Question(models.Model):
         OPTION3 = 3
         OPTION4 = 4
 
+    id = models.AutoField(primary_key=True)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=200)
     option1 = models.CharField(max_length=200)

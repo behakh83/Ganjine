@@ -2,9 +2,11 @@ import json
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, action
+from rest_framework.response import Response
 
-from api.serializers import UserSerializer, GroupSerializer, CollectionSerializer, QuestionSerializer
+from api.serializers import UserSerializer, GroupSerializer, CollectionSerializer, QuestionSerializer, \
+    CollectionSerializerDetail
 from api.models import Collection, Question
 from django.http import HttpResponse
 
@@ -25,6 +27,12 @@ class CollectionViewSet(viewsets.ModelViewSet):
     queryset = Collection.objects.order_by('grade')
     serializer_class = CollectionSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filterset_fields = ('grade',)
+
+    def retrieve(self, request, *args, **kwargs):
+        queryset = Collection.objects.get(id=kwargs['pk'])
+        serializer = CollectionSerializerDetail(queryset, many=False, context={'request': request})
+        return Response(serializer.data)
 
     def get_permissions(self):
         if self.action == 'list' or self.action == 'retrieve':

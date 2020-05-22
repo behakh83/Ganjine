@@ -18,11 +18,17 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class CollectionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Collection
-        fields = ['grade', 'name', 'question_set']
+        fields = ['id', 'grade', 'name']
+
+
+class CollectionSerializerDetail(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Collection
+        fields = ['id', 'grade', 'name', 'question_set']
 
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Question
-        fields = ['collection', 'question_text', 'option1', 'option2',
+        fields = ['id', 'collection', 'question_text', 'option1', 'option2',
                   'option3', 'option4', 'correct_option', 'date_update']
