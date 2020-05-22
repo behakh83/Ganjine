@@ -1,6 +1,11 @@
 from django.contrib import admin
-# the module name is app_name.models
+from django.contrib.auth.models import User, Group
+from rest_framework.authtoken.models import Token
 from api.models import Collection, Question
-# Register your models to admin site, then you can add, edit, delete and search your models in Django admin site.
+
 admin.site.register(Collection)
 admin.site.register(Question)
+
+admin.site.unregister(User)
+admin.site.unregister(Group)
+admin.site.unregister(Token)
