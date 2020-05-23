@@ -42,9 +42,11 @@ class QuestionListSerializer(serializers.HyperlinkedModelSerializer):
 
 class CollectionSerializerDetail(serializers.HyperlinkedModelSerializer):
     question_set = QuestionListSerializer(many=True)
+    questions_count = serializers.SerializerMethodField()
 
     class Meta:
         model = Collection
-        fields = ['id', 'grade', 'name', 'question_set']
+        fields = ['id', 'grade', 'name', 'questions_count', 'question_set']
 
-
+    def get_questions_count(self, obj):
+        return len(obj.question_set.all())
