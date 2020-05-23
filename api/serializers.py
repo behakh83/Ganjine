@@ -26,14 +26,25 @@ class CollectionSerializer(serializers.HyperlinkedModelSerializer):
         return len(obj.question_set.all())
 
 
-class CollectionSerializerDetail(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Collection
-        fields = ['id', 'grade', 'name', 'question_set']
-
-
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Question
         fields = ['id', 'collection', 'question_text', 'option1', 'option2',
                   'option3', 'option4', 'correct_option', 'date_update']
+
+
+class QuestionListSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Question
+        fields = ['id', 'question_text', 'option1', 'option2',
+                  'option3', 'option4', 'correct_option']
+
+
+class CollectionSerializerDetail(serializers.HyperlinkedModelSerializer):
+    question_set = QuestionListSerializer(many=True)
+
+    class Meta:
+        model = Collection
+        fields = ['id', 'grade', 'name', 'question_set']
+
+
