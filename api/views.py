@@ -61,6 +61,11 @@ def test_connection(request):
 
 
 @api_view(['GET'])
+def about_us(request):
+    return HttpResponse(json.dumps({'about_us': 'True', 'developers': ''}))
+
+
+@api_view(['GET'])
 def collection_count(request):
     seventh = len(Collection.objects.filter(grade=Collection.Grade.SEVENTH))
     eighth = len(Collection.objects.filter(grade=Collection.Grade.EIGHTH))
