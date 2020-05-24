@@ -5,9 +5,10 @@ from rest_framework.authtoken.models import Token
 from api.models import Collection, Question
 
 
-class QuestionInline(admin.TabularInline):
+class QuestionInline(admin.StackedInline):
     model = Question
-    extra = 1
+    extra = 0
+    show_change_link = True
 
 
 class CollectionAdmin(admin.ModelAdmin):
