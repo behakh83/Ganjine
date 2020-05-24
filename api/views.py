@@ -64,7 +64,7 @@ def test_connection(request):
 def about_us(request):
     return HttpResponse(json.dumps({'about_us': 'گنجینه مجموعه ای بی نظیر از بهترین سوالات مطالعات اجتماعی پایه های '
                                                 'هفتم، هشتم و نهم است که می تواند شما را برای امتحانات آماده کند.',
-                                    'developers': 'برنامه نویس:'
+                                    'developers': 'برنامه نویس:\n'
                                                   'بهراد آخانی\n'
                                                   'تهیه کنندگان:\n'
                                                   'محمدطاها غفاری\n'
