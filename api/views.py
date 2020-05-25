@@ -2,9 +2,9 @@ import json
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
-from rest_framework.decorators import api_view, action
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
+from django.shortcuts import render
 from api.serializers import UserSerializer, GroupSerializer, CollectionSerializer, QuestionSerializer, \
     CollectionSerializerDetail
 from api.models import Collection, Question
@@ -81,4 +81,8 @@ def collection_count(request):
     return HttpResponse(json.dumps({'seventh': seventh,
                                     'eighth': eighth,
                                     'ninth': ninth}))
+
+
+def index(request):
+    return render(request, 'api/index.html')
 

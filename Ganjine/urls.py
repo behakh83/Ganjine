@@ -13,6 +13,7 @@ router.register(r'question', views.QuestionViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
+    path('', views.index),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
     path('api/v1/test/', views.test_connection),
