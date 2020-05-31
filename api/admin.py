@@ -24,7 +24,7 @@ class CollectionAdmin(admin.ModelAdmin):
 class QuestionAdmin(admin.ModelAdmin):
     class Media:
         css = {
-            'all': ('css/custom_admin_panel.css',)
+            'all': ('static/css/custom_admin_panel.css',)
         }
 
 
